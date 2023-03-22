@@ -15,6 +15,7 @@ const getAllBreedsApi = async () => {
         let dogsArrayApi = []
         let apiData= await axios.get(`https://api.thedogapi.com/v1/breeds/?api_key=${api_key}`);
         await apiData.data.map( dog =>{
+            
             dogsArrayApi.push({
                 id: dog.id,
                 name: dog.name,
@@ -51,7 +52,7 @@ const getAllBreedsDb = async () => {
                 image: dog.image,
                 height:dog.height,
                 lifespan: dog.lifespan,
-                temperament: dog.Temperaments
+                temperament: dog.Temperaments.map(temp => temp.temperamentName)
             }
         })
         return dogsArrayDb;

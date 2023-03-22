@@ -1,9 +1,30 @@
 import './App.css';
+import LandingPage from './components/LandingPage/LandingPage';
+import { Route, Switch } from 'react-router';
+import DetailCard from './components/DetailCard/DetailCard.jsx';
+import Dogs from './components/DogsMain/Dogs';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Dogs</h1>
+     
+    <Switch>
+
+      <Route exact path ="/">
+        <LandingPage />
+      </Route>
+      <Route exact path="/dogs">
+        <Dogs/>
+      </Route>
+      <Route path="/dogs/:id">
+        <DetailCard />
+      </Route>
+
+
+
+    </Switch>
+
     </div>
   );
 }
