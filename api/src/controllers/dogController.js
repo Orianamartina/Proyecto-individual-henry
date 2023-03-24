@@ -13,8 +13,11 @@ const {Dog, Temperament} = require ("../db");
 const getAllBreedsApi = async () => {
     try {
         let dogsArrayApi = []
+        let temperamentArray = []
         let apiData= await axios.get(`https://api.thedogapi.com/v1/breeds/?api_key=${api_key}`);
         await apiData.data.map( dog =>{
+
+            if(dog.temperament) temperamentArray = dog.temperament.split(", ")
             
             dogsArrayApi.push({
                 id: dog.id,
@@ -23,7 +26,7 @@ const getAllBreedsApi = async () => {
                 image: dog.image.url,
                 height:dog.height.metric,
                 lifespan: dog.life_span,
-                temperament: dog.temperament
+                temperament: temperamentArray
             })
         })
         return dogsArrayApi

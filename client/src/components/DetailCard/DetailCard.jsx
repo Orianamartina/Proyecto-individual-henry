@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux"
 import { useEffect, useState } from "react"
 import { getAllBreeds, getDogDetail} from "../../redux/actions";
 import {Link} from "react-router-dom"
+import Loading from "../Loading/Loading";
 
 export default function DetailCard() {
 
@@ -34,11 +35,10 @@ export default function DetailCard() {
         
         <div>
             {loading ? (
-            <p>Loading...</p>
+            <Loading />
             ) : (
 
                 <div>
-
                         <Link to= "/dogs">
                             <button>
                                 Home

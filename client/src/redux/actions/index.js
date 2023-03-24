@@ -1,4 +1,4 @@
-import { GET_ALL_BREEDS, GET_ALL_TEMPERAMENTS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT} from "../action-types";
+import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS, GET_ALL_TEMPERAMENTS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT} from "../action-types";
 import axios from "axios";
 
 export const getAllBreeds = () => {
@@ -43,4 +43,18 @@ export const orderByWeight = (payload) => {
         type: ORDER_BY_WEIGHT,
         payload
     }
+}
+export const filterByTemperament = (payload) => {
+    return{
+        type: FILTER_BY_TEMPERAMENT,
+        payload
+    }
+}
+
+export const postDog = (payload) => {
+    return async function() {
+        const data = await axios.post("http://localhost:3001/dogs", payload)
+        return data
+    }
+    
 }

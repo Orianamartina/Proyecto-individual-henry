@@ -1,7 +1,8 @@
 
-import { GET_ALL_BREEDS,  GET_ALL_TEMPERAMENTS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT } from "../action-types"
+import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS,  GET_ALL_TEMPERAMENTS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT, POST_DOG } from "../action-types"
 
 const initialState = {
+    breedsForFunctions: [],
     allBreeds: [],
     allTemperaments: [],
     dogDetail: [],
@@ -15,6 +16,7 @@ const initialState = {
         case GET_ALL_BREEDS: 
             return{
                 ...state,
+                breedsForFunctions: action.payload,
                 allBreeds: action.payload.sort((a, b) => {
                 if (a.name.toLowerCase() < b.name.toLowerCase())
                 return -1 
@@ -41,7 +43,7 @@ const initialState = {
         case GET_DOG_BY_NAME:
             return{
                 ...state,
-                dogsByName: action.payload
+                allBreeds: action.payload
             }
         case ORDER_BY_NAME:{
             let sortedArray = []
@@ -55,7 +57,7 @@ const initialState = {
                 })
                 return{
                     ...state,
-                    dogs: sortedArray
+                    allBreeds: sortedArray
                     } 
             }
             if (action.payload === "desc"){
@@ -69,7 +71,7 @@ const initialState = {
 
                 return{
                 ...state,
-                dogs: sortedArray
+                allBreeds: sortedArray
                 } 
             
             }
@@ -87,7 +89,7 @@ const initialState = {
                 })
                 return{
                     ...state,
-                    dogs: sortedArray
+                    allBreeds: sortedArray
                     } 
             }
             if (action.payload === "heavy"){
@@ -96,18 +98,32 @@ const initialState = {
                     let dogB = Number(b.weight.slice(5, 7))
                     if (dogA > dogB) return 1;
                     if (dogA < dogB) return -1;
-                     return 0;
+                    return 0;
                 })
                 return{
                     ...state,
-                    dogs: sortedArray
+                    allBreeds: sortedArray
                     } 
             }
             break;
         }
+        case FILTER_BY_TEMPERAMENT:{
+            let filteredArray = []
+            let allBreeds = state.breedsForFunctions
+           
+            for (let i = 0; i < allBreeds.length; i++) {
+                if (allBreeds[i].temperament.includes(action.payload)){
+                    filteredArray.push(allBreeds[i])
+                }
+            }
+             
+            return{
+                ...state,
+                allBreeds: filteredArray
+            } 
         
         
-        
+        }
         default: {
             return state
         }
