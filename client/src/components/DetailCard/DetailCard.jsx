@@ -51,7 +51,8 @@ export default function DetailCard() {
                         <img src={detail.image} alt={dogId.id} />
                         <h2>Id: {detail.id}</h2>
                         <h2>Lifespan: {detail.lifespan}</h2>
-                        <h2>weight: {detail.weight}</h2>
+                        <h2>weight: {detail.weight} Kg</h2>
+                        <h2>Height: {detail.height} Cm</h2>
                         <h2>Temperament:</h2>
                         <h2>{detail.temperament}</h2>
                     

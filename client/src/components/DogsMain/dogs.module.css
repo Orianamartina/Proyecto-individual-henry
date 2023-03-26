@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@300;400;600&display=swap');
+
+:root{
+    --lightCyan: rgb(160, 255, 249);
+    --lightPink: rgb(252, 202, 195);
+    --darkerPink: rgb(203, 164, 158);
+    --backgroundCream: rgb(244, 241, 236);
+    --DarkestBlue: rgb(57, 72, 105);
+
+    /* fonts */
+
+    --font: 'Sofia Sans Extra Condensed', sans-serif;
+
+}
+
+body{
+    font-family: var(--font);
+    background-color: var(--backgroundCream);
+    max-width: 100%;
+    text-decoration: none;
+}
+
+
+.cardsAndOptions{
+    display: flex;
+    width: 100%;
+    margin-top: 0%;
+
+}
+.cardsContainer{
+    display: inline-block;
+    max-width: 100%;
+    padding: 0;
+    margin: 0%;
+    
+    
+}
+.optionsContainer{
+    display: inline-block;
+    max-width: 100%;
+    padding: 5%;
+    margin: 0%;
+    background-color: var(--darkerPink);
+}
+.logo{
+    width: 2%;
+}

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@300;400;600&display=swap');
+
+:root{
+    --lightCyan: rgb(160, 255, 249);
+    --lightPink: rgb(252, 202, 195);
+    --backgroundCream: rgb(244, 241, 236);
+    --DarkestBlue: rgb(57, 72, 105);
+
+    /* fonts */
+
+    --font: 'Sofia Sans Extra Condensed', sans-serif;
+
+}
+
+
+.mainContainer{
+    background-color: var(--backgroundCream);
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    background-image: url("./background.jpg");
+    background-size: cover;
+    background-position: center center;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(33%, auto);
+
+}
+
+.linkContainer{
+    border: 1xp solid var(--backgroundCream);
+
+    
+}
+.link{
+    text-decoration: none;
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 3em;
+    color: var(--DarkestBlue);
+    background-color:   var(--backgroundCream);
+    padding-right: 3vw;
+    padding-left: 3vw;
+    
+}
+.link:hover{
+    cursor: pointer;
+    transition: 0.1s;
+    border: 1xp solid var(--DarkestBlue);
+
+}
+.textContainer{
+    grid-column: 1;
+    grid-row: 1;
+    
+}
+.text{
+    font-family: var(--font);
+    font-weight: bold;
+    font-size: 4em;
+    color: var(--DarkestBlue)
+}
