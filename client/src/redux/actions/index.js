@@ -1,4 +1,4 @@
-import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS, GET_ALL_TEMPERAMENTS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT} from "../action-types";
+import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS, GET_ALL_TEMPERAMENTS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT, GET_DATABASE_BREEDS} from "../action-types";
 import axios from "axios";
 
 export const getAllBreeds = () => {
@@ -57,4 +57,10 @@ export const postDog = (payload) => {
         return data
     }
     
+}
+export const getDatabaseOrApi = (payload) => {
+    return{
+        type: GET_DATABASE_BREEDS,
+        payload
+    }
 }

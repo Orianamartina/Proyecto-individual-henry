@@ -140,6 +140,7 @@ grid-area: select;
     .logoContainer{
         width: 10%;
         padding: 1%;
+        cursor: pointer;
        
     }
  

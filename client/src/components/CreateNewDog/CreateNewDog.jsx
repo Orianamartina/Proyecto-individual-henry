@@ -28,7 +28,7 @@ const validate = (form) => {
         }
         if(isNaN(parseInt(form.lifespan))){
             errors.lifespan = "Lifespan must be an integer"
-            console.log(parseInt(form.lifespan))
+           
         }
         if(parseInt(form.minimumHeight) > parseInt(form.maximumHeight)){
             errors.minimumHeight = "Minimum height must be smaller than maximum height"
@@ -38,7 +38,7 @@ const validate = (form) => {
         }
         if(form.temperament.length === 0){
             errors.temperament = "Choose at least one temperament out of the list"
-            console.log(form.temperament.length)
+            
         }
         return errors
     }

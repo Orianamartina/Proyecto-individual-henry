@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import { useEffect, useState } from "react";
-import { filterByTemperament, getAllBreeds,  getAllTemperaments, getDogByName, orderByName, orderByWeight } from "../../redux/actions";
+import { filterByTemperament, getAllBreeds,  getAllTemperaments, getDatabaseOrApi, getDogByName, orderByName, orderByWeight } from "../../redux/actions";
 import SearchBar from "../SearchBar/SearchBar";
 import Loading from "../Loading/Loading";
 import {Link} from "react-router-dom"
@@ -54,13 +54,20 @@ export default function Dogs() {
         }
     }
 
-   //handle changes =
-
+    //reset selects 
+    function resetS(id) {
+        const multipleSelect = document.getElementById(id);
+        multipleSelect.selectedIndex = 0;
+    }
+    //handle changes =
     const handleTemperamentChange= (e) => {
         e.preventDefault();
         dispatch(filterByTemperament(e.target.value));
         setFlag(e.target.value)
         setCurrentPage(1)
+        resetS(1)
+        resetS(2)
+        resetS(4)
     }
     
     const handleOrderByName = (e) => {
@@ -68,7 +75,9 @@ export default function Dogs() {
         dispatch(orderByName(e.target.value))
         setFlag(e.target.value)
         setCurrentPage(1)
-        
+        resetS(2)
+        resetS(3)
+        resetS(4)
     }
 
     const handleOrderByWeight  = (e) => {
@@ -76,9 +85,18 @@ export default function Dogs() {
         dispatch(orderByWeight(e.target.value))
         setFlag(e.target.value)
         setCurrentPage(1)
+        resetS(1)
+        resetS(3)
+        resetS(4)
     }
     const handleOrderBySource = (e) => {
-        
+        e.preventDefault()
+        dispatch(getDatabaseOrApi(e.target.value))
+        setFlag(e.target.value)
+        setCurrentPage(1)
+        resetS(1)
+        resetS(2)
+        resetS(3)
     }
 
     //busqueda
@@ -99,7 +117,7 @@ export default function Dogs() {
                 <div>
 
                     <div className={style.nav}>
-                            <div className={style.logoContainer}>
+                            <div onClick={() => {window.location.replace("/dogs")}} className={style.logoContainer}>
                                 <img className={style.logo} src={logo} alt="DogHub" />
                                 <h1 className={style.title}>DogHub</h1>
                             </div>
@@ -125,8 +143,8 @@ export default function Dogs() {
                                    
                                     <div className={style.select}>
                                     
-                                        <select className={style.options} onChange={(e) => {handleOrderByName(e)}}>
-                                            <option value="" disabled selected> Sort by name </option>
+                                        <select id="1" className={style.options} onChange={(e) => {handleOrderByName(e)}}>
+                                            <option value="" disabled selected  > Sort by name </option>
                                             <option value="asc">A - Z</option>
                                             <option value="desc">Z - A</option> 
                                             
@@ -136,8 +154,8 @@ export default function Dogs() {
                                     
                                     <div className={style.select}>
                                         
-                                        <select className={style.options} onChange={(e) => {handleOrderByWeight(e)}} >
-                                            <option  value="" disabled selected> Sort by weight </option>
+                                        <select id="2" className={style.options} onChange={(e) => {handleOrderByWeight(e)}} >
+                                            <option  value="" disabled selected > Sort by weight </option>
                                             <option  value="light">Light - Heavy</option>
                                             <option  value="heavy">Heavy - Light</option>
                                         </select>
@@ -146,8 +164,8 @@ export default function Dogs() {
                                     
                                     <div className={style.select}>
                                         
-                                        <select className={style.options} onChange={(e) => {handleTemperamentChange(e)}} >
-                                            <option value="" disabled selected> Filter by temperament</option>
+                                        <select id="3" className={style.options} onChange={(e) => {handleTemperamentChange(e)}} >
+                                            <option value="" disabled selected > Filter by temperament</option>
                                         {temperaments.map(temp =>{
                                             return <option key = {temp.id} value={temp.temperamentName}>{temp.temperamentName}</option>
                                                 }
@@ -157,8 +175,8 @@ export default function Dogs() {
                                     </div> 
                                     <div className={style.select}>
                                         
-                                        <select className={style.options} onChange={(e) => {handleOrderBySource(e)}}>
-                                            <option value="" disabled selected> Filter by source </option>
+                                        <select id="4" className={style.options} onChange={(e) => {handleOrderBySource(e)}}>
+                                            <option value="" disabled selected > Filter by source </option>
                                             <option value="api">Api</option>
                                             <option value="db">Created</option> 
                                             

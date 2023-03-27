@@ -108,26 +108,11 @@ const getBreedByIdApi = async (idRaza) => {
 
 const getBreedByIdDb = async (id) => {
     try{
-        
-        let dogById = await Dog.findAll({
-            where: {
-                id: id
-            },include: Temperament
-            
-        })
+       
+        let apiDogs = await getAllBreedsDb();
 
-        const arrayTemperaments = dogById[0].Temperaments.map(temper => temper.name)
-
-        let dogObject = dogById.map(dog => {
-           return{image: dog.image,
-            name: dog.name,
-            height: dog.height,
-            weight: dog.weight,
-            lifespan: dog.lifespan,
-            temperament: arrayTemperaments.join(", ")} 
-        }) 
-
-        return dogObject
+        let dogFound = apiDogs.find(dog => dog.id === id)
+        return  dogFound
     } catch (error) {
         return {error: "There was a problem finding the breed"}
      }

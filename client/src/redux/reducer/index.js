@@ -1,5 +1,5 @@
 
-import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS,  GET_ALL_TEMPERAMENTS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT, POST_DOG } from "../action-types"
+import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS,  GET_ALL_TEMPERAMENTS, GET_API_BREEDS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT, GET_DATABASE_BREEDS } from "../action-types"
 
 const initialState = {
     breedsForFunctions: [],
@@ -121,8 +121,34 @@ const initialState = {
                 ...state,
                 allBreeds: filteredArray
             } 
-        
-        
+    
+        }
+        case GET_DATABASE_BREEDS: {
+
+            let filteredArray = []
+            let allBreeds = state.breedsForFunctions
+            if (action.payload === "db"){
+                for (let i = 0; i < allBreeds.length; i++) {
+                    const element = allBreeds[i];
+                    if (element.id.length > 3){
+                        filteredArray.push(element)
+                    }
+                }
+            }
+            if(action.payload === "api"){
+                for (let i = 0; i < allBreeds.length; i++) {
+                    const element = allBreeds[i];
+                    if (element.id < 300){
+                        filteredArray.push(element)
+                    }
+                }
+            }
+            
+
+            return{
+                ...state,
+                allBreeds: filteredArray
+            }
         }
         default: {
             return state

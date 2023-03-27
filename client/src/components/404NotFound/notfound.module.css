@@ -1,0 +1,12 @@
+
+
+body{
+    background-color:  var(--backgroundCream);
+}
+.text{
+    color: var(--DarkestBlue);
+    text-decoration: none;
+}
+.img{
+    width: 60%;
+}
