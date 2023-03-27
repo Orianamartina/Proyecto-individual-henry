@@ -1,0 +1,49 @@
+:root{
+    --lightCyan: rgb(160, 255, 249);
+    --lightPink: rgb(252, 202, 195);
+    --darkerPink: rgb(203, 164, 158);
+    --backgroundCream: rgb(244, 241, 236);
+    --DarkestBlue: rgb(57, 72, 105);
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+   
+    border: 2px solid var(--darkerPink);
+    color: var(--DarkestBlue);
+    font-size: 1,1em;
+    margin: auto; 
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 5%;
+    padding-bottom: 5%;
+}
+.img{
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    border-top-left-radius: 5% ;
+    border-top-right-radius: 5%  ;
+    
+}
+.textContainer{
+    margin: auto;
+    
+}
+.text{
+    margin: 0;
+    font-size: 5vh;
+}
+.buttonDiv{
+    margin: auto;
+    margin-top: 5%;
+    
+}
+.detailButton{
+    padding: 1%;
+    font-size: 4vh;
+    
+}

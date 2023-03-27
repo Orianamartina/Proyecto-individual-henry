@@ -4,13 +4,14 @@ import { useEffect, useState } from "react"
 import { getAllBreeds, getDogDetail} from "../../redux/actions";
 import {Link} from "react-router-dom"
 import Loading from "../Loading/Loading";
+import style from "./detailCard.module.css"
 
 export default function DetailCard() {
 
     const dogId = useParams()
     const dispatch = useDispatch()
 
-    let breeds = useSelector((state) => state.allBreeds);
+    
     let detail = useSelector((state) => state.dogDetail)
     //hacemos dispatch de la action cuando se monta el componente
     useEffect(() =>{
@@ -37,26 +38,34 @@ export default function DetailCard() {
             {loading ? (
             <Loading />
             ) : (
-
                 <div>
+                    <div  className={style.buttonDiv}>
                         <Link to= "/dogs">
-                            <button>
+                            <button className={style.detailButton} >
                                 Home
                             </button>
                         </Link>
-                        
-                        <h1>
-                            {detail.name}
-                        </h1>
-                        <img src={detail.image} alt={dogId.id} />
-                        <h2>Id: {detail.id}</h2>
-                        <h2>Lifespan: {detail.lifespan}</h2>
-                        <h2>weight: {detail.weight} Kg</h2>
-                        <h2>Height: {detail.height} Cm</h2>
-                        <h2>Temperament:</h2>
-                        <h2>{detail.temperament}</h2>
+                    </div>
                     
-                </div>)}
+                    <div className={style.container}>
+                        <img className={style.img} src={detail.image} alt={dogId.id} />
+                        <div className={style.textContainer}>
+                            <h1>
+                                {detail.name}
+                            </h1>
+                            <h2 className={style.text}>Id:  {detail.id}</h2>
+                            <h2 className={style.text}>Lifespan:  {detail.lifespan}</h2>
+                            <h2 className={style.text}>weight:  {detail.weight} Kg</h2>
+                            <h2 className={style.text}>Height:  {detail.height} Cm</h2>
+                            <h2 className={style.text}>Temperament: </h2>
+                            <h2 className={style.text}>{detail.temperament}</h2> 
+                        </div>
+                        
+                    
+                    </div>
+
+        </div>
+                )}
         </div>
  )
 }

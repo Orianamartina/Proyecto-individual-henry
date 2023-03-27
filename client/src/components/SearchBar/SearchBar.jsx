@@ -1,4 +1,4 @@
-
+import style from "./searchbar.module.css"
 import React from "react";
 import  {useEffect, useState} from "react"
 
@@ -10,10 +10,10 @@ export default function SearchBar(props) {
     }
     
     return (
-        <div >
+        <div className={style.barContainer}>
             
-            <input  type='search' value = {text} onChange ={handleChange}/>
-            <button onClick={() => props.onSearch(text)}>Search</button> 
+            <input className={style.barInput} type='search' value = {text} onChange ={handleChange} placeholder="Search By Name"/>
+            <button className={style.searchButton} onClick={() => props.onSearch(text)}>Search</button> 
         </div>
     );
 }

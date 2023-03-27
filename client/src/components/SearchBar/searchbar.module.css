@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@300;400;600&display=swap');
+
+:root{
+    --lightCyan: rgb(160, 255, 249);
+    --lightPink: rgb(252, 202, 195);
+    --darkerPink: rgb(203, 164, 158);
+    --backgroundCream: rgb(244, 241, 236);
+    --DarkestBlue: rgb(57, 72, 105);
+
+    /* fonts */
+
+    --font: 'Sofia Sans Extra Condensed', sans-serif;
+
+}
+
+.barContainer{
+    margin-bottom: 2%;
+}
+
+.barInput{
+    width: 45%;
+    
+    
+    border: 2px solid var(--darkerPink);
+    font-family: var(--font);
+    font-size: 4vh;
+}
+.searchButton{
+    background-color: var(--DarkestBlue);
+    border: 2px solid var(--darkerPink);
+    font-size: 4vh;
+    font-weight: bold;
+    color: var(--backgroundCream);
+    height: fit-content;
+}
+

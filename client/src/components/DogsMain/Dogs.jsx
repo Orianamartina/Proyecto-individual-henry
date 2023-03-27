@@ -14,15 +14,7 @@ export default function Dogs() {
     const breeds = useSelector((state) => state.allBreeds)
     const temperaments = useSelector((state) => state.allTemperaments) 
 
-    //loading component timing(could await dispatch load)
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        const timer = setTimeout(() => {
-          setLoading(false);
-        }, 2000);
     
-        return () => clearTimeout(timer);
-    }, []);
     
     
     //use effect es para traer la informacion cuando se monta el componente 
@@ -49,7 +41,9 @@ export default function Dogs() {
     //botones de paginado
     const pageOnClick = () => {
         if (currentPage < pageQuantity){
+           
             setCurrentPage(currentPage + 1)
+          
             
         }  
              
@@ -66,13 +60,14 @@ export default function Dogs() {
         e.preventDefault();
         dispatch(filterByTemperament(e.target.value));
         setFlag(e.target.value)
-
+        setCurrentPage(1)
     }
     
     const handleOrderByName = (e) => {
         e.preventDefault();
         dispatch(orderByName(e.target.value))
         setFlag(e.target.value)
+        setCurrentPage(1)
         
     }
 
@@ -80,6 +75,10 @@ export default function Dogs() {
         e.preventDefault();
         dispatch(orderByWeight(e.target.value))
         setFlag(e.target.value)
+        setCurrentPage(1)
+    }
+    const handleOrderBySource = (e) => {
+        
     }
 
     //busqueda
@@ -94,67 +93,107 @@ export default function Dogs() {
     return(
        
         <div>
-            {loading ? (
+            {currentDogs.length === 0 ? (
             <Loading/>
             ) : (
-                <div className="bigContainer">
-                    
-                    
+                <div>
 
-                    <div className= {style.cardsAndOptions}>
-                    
-                        <div className={style.optionsContainer}>
-                            
-                            <img className={style.logo} src={logo} alt="" />
-                            
-                            <Link to="/createDog">
-                                <button>Create New Dog</button>
-                            </Link>
-                            <h1>Sort By:</h1>
-                            <h2>Alphabetical order</h2>
-                            <select onChange={(e) => {handleOrderByName(e)}}name="sort" id="1">
-                                <option value=""> Select Option </option>
-                                <option value="asc">A - Z</option>
-                                <option value="desc">Z - A</option> 
-                            </select>
-                            <h2>Weight</h2>
-                            <select onChange={(e) => {handleOrderByWeight(e)}} name="" id="">
-                                <option value=""> Select Option </option>
-                                <option value="light">Light - Heavy</option>
-                                <option value="heavy">Heavy - Light</option>
-                            </select>
-                            <h1>Filter By:</h1>
-                            <h2>Temperament</h2>
-                            <select onChange={(e) => {handleTemperamentChange(e)}} name="filter" id="2">
-                                <option value=""> Select Option</option>
-                            {temperaments.map(temp =>{
-                                return <option key = {temp.id} value={temp.temperamentName}>{temp.temperamentName}</option>
-                                    }
-                                ) 
-                            }      
-                            </select>
-                        
-                        </div>    
-                        
-                        <div className={style.displayContainer}>
-
-                            <h1>DogHub</h1>
-                        
-                            <div>
-                                 <SearchBar onSearch = {onSearch} />
-                             </div>
-                            <button onClick={pageOnClickPrevious}>Previous</button>
-                            <button onClick={pageOnClick}>Next</button>
-
-                            <div className={style.cardsContainer}>
-                                <DogCards currentDogs = {currentDogs} />
+                    <div className={style.nav}>
+                            <div className={style.logoContainer}>
+                                <img className={style.logo} src={logo} alt="DogHub" />
+                                <h1 className={style.title}>DogHub</h1>
                             </div>
+                            <div className={style.buttonsAndOptionsContainer}>
 
-                            <button onClick={pageOnClickPrevious}>Previous</button>
-                            <button onClick={pageOnClick}>Next</button>
+                            
+                                <div className={style.buttonsContainer}>
+
+                                    <Link to="/about">
+                                        <button className={style.changePageButton}>About</button>
+                                    </Link>
+                                    <div className={style.searchBarContainer}>
+                                        <SearchBar  onSearch = {onSearch} />
+                                    </div>
+                                    <Link to="/createDog">
+                                        <button className={style.changePageButton}>Create New Dog</button>
+                                    </Link>
+                                    
+                                </div>
+                                <div className={style.optionsContainer}>
+
+                                    
+                                   
+                                    <div className={style.select}>
+                                    
+                                        <select className={style.options} onChange={(e) => {handleOrderByName(e)}}>
+                                            <option value="" disabled selected> Sort by name </option>
+                                            <option value="asc">A - Z</option>
+                                            <option value="desc">Z - A</option> 
+                                            
+                                        </select>
+                                    </div>
+                                    
+                                    
+                                    <div className={style.select}>
+                                        
+                                        <select className={style.options} onChange={(e) => {handleOrderByWeight(e)}} >
+                                            <option  value="" disabled selected> Sort by weight </option>
+                                            <option  value="light">Light - Heavy</option>
+                                            <option  value="heavy">Heavy - Light</option>
+                                        </select>
+                                    </div>
+                                    
+                                    
+                                    <div className={style.select}>
+                                        
+                                        <select className={style.options} onChange={(e) => {handleTemperamentChange(e)}} >
+                                            <option value="" disabled selected> Filter by temperament</option>
+                                        {temperaments.map(temp =>{
+                                            return <option key = {temp.id} value={temp.temperamentName}>{temp.temperamentName}</option>
+                                                }
+                                            ) 
+                                        }      
+                                        </select>
+                                    </div> 
+                                    <div className={style.select}>
+                                        
+                                        <select className={style.options} onChange={(e) => {handleOrderBySource(e)}}>
+                                            <option value="" disabled selected> Filter by source </option>
+                                            <option value="api">Api</option>
+                                            <option value="db">Created</option> 
+                                            
+                                        </select>
+                                    </div>
+                                    
+                            
+                                </div>  
+                            </div>  
+                        
+
+                   </div>
+                    
+                        
+                      
+                    <div className={style.displayContainer}>
+                       
+                        <div >
+                            <button className={style.pageControlButtons} onClick={pageOnClickPrevious}>Previous</button>
+                            <button className={style.pageControlButtons} onClick={pageOnClick}>Next</button>
+
+                        </div>
+                        
+
+                        <div className={style.cardsContainer}>
+                            <DogCards currentDogs = {currentDogs} />
+                        </div>
+                        <div>
+                            <button className={style.pageControlButtons} onClick={pageOnClickPrevious}>Previous</button>
+                            <button className={style.pageControlButtons} onClick={pageOnClick}>Next</button>
                         </div>
                         
                     </div>
+                        
+                    
                 </div>)}
         
         
