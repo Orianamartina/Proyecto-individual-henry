@@ -152,7 +152,7 @@ grid-area: select;
         justify-content: space-evenly;
         width: 100%;
         padding-top: 3%;
-      
+        border-bottom: 1px solid var(--darkerPink);
         
     }
     

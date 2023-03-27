@@ -35,7 +35,10 @@
 }
 .text{
     margin: 0;
-    font-size: 5vh;
+    font-size: 4vw;
+}
+.title{
+    font-size: 5vw;
 }
 .buttonDiv{
     margin: auto;
@@ -46,4 +49,19 @@
     padding: 1%;
     font-size: 4vh;
     
+}
+
+@media (min-width: 700px) {
+    .container{
+        width: 40%;
+    }
+    .text{
+        margin: 0;
+        font-size: 2vw;
+    }
+    .title{
+        font-size: 3vw;
+    }
+    
+
 }

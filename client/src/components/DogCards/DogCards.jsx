@@ -9,7 +9,7 @@ export default function(currentDogs){
             
             {currentDogs.currentDogs.map(dog => {
                 
-                const temperament = dog.temperament.slice(0, 4)
+                const temperament = dog.temperament
         
                 return (<Link to= {`/dogs/${dog.id}`}>
                     <div className={style.cardContainer}>

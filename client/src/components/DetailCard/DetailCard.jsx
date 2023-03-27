@@ -50,7 +50,7 @@ export default function DetailCard() {
                     <div className={style.container}>
                         <img className={style.img} src={detail.image} alt={dogId.id} />
                         <div className={style.textContainer}>
-                            <h1>
+                            <h1 className={style.title}>
                                 {detail.name}
                             </h1>
                             <h2 className={style.text}>Id:  {detail.id}</h2>
