@@ -38,7 +38,7 @@ const validate = (form) => {
         }
         if(form.temperament.length === 0){
             errors.temperament = "Choose at least one temperament out of the list"
-            
+    
         }
         return errors
     }

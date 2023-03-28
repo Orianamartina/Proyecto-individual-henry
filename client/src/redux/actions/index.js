@@ -1,23 +1,23 @@
-import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS, GET_ALL_TEMPERAMENTS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT, GET_DATABASE_BREEDS} from "../action-types";
+import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS, GET_ALL_TEMPERAMENTS,GET_DATABASE_BREEDS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT, GET} from "../action-types";
 import axios from "axios";
 
 export const getAllBreeds = () => {
     return async function(dispatch){
-        let data = await axios("http://localhost:3001/dogs")
+        let data = await axios("/dogs")
         return dispatch({type: GET_ALL_BREEDS, payload: data.data})
     } 
 }
 
 export const getAllTemperaments = () => {
     return async function(dispatch){
-        let data = await axios("http://localhost:3001/temperaments")
+        let data = await axios("/temperaments")
     
         return dispatch({type: GET_ALL_TEMPERAMENTS, payload: data.data})
     }
 }
 export const getDogDetail  = (id) => {
     return async function(dispatch){
-        let data = await axios(`http://localhost:3001/dogs/${id}`)
+        let data = await axios(`/dogs/${id}`)
     
         return dispatch({type: GET_DOG_DETAIL, payload: data.data})
     }
@@ -25,7 +25,7 @@ export const getDogDetail  = (id) => {
 }
 export const getDogByName = (name) => {
     return async function(dispatch){
-        let data = await axios(`http://localhost:3001/dogs/name/?name=${name}`)
+        let data = await axios(`/dogs/name/?name=${name}`)
     
         return dispatch({type: GET_DOG_BY_NAME, payload: data.data})
     }
@@ -53,7 +53,7 @@ export const filterByTemperament = (payload) => {
 
 export const postDog = (payload) => {
     return async function() {
-        const data = await axios.post("http://localhost:3001/dogs", payload)
+        const data = await axios.post("/dogs", payload)
         return data
     }
     
