@@ -1,10 +1,10 @@
 import {useParams} from "react-router-dom"
 import {useDispatch, useSelector} from "react-redux"
 import { useEffect, useState } from "react"
-import { getAllBreeds, getDogDetail} from "../../redux/actions";
-import {Link} from "react-router-dom"
+import { getDogDetail} from "../../redux/actions";
 import Loading from "../Loading/Loading";
 import style from "./detailCard.module.css"
+import Nav from "../Nav/Nav";
 
 export default function DetailCard() {
 
@@ -29,24 +29,13 @@ export default function DetailCard() {
         return () => clearTimeout(timer);
     }, []);
     
-    
-    
-    
     return (
         
-        <div>
+        <div className={style.module}>
+            <Nav />
             {loading ? (
             <Loading />
             ) : (
-                <div>
-                    <div  className={style.buttonDiv}>
-                        <Link to= "/dogs">
-                            <button className={style.detailButton} >
-                                Home
-                            </button>
-                        </Link>
-                    </div>
-                    
                     <div className={style.container}>
                         <img className={style.img} src={detail.image} alt={dogId.id} />
                         <div className={style.textContainer}>
@@ -60,11 +49,7 @@ export default function DetailCard() {
                             <h2 className={style.text}>Temperament: </h2>
                             <h2 className={style.text}>{detail.temperament}</h2> 
                         </div>
-                        
-                    
                     </div>
-
-        </div>
                 )}
         </div>
  )

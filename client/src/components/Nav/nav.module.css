@@ -1,0 +1,56 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    height: fit-content;
+    border-bottom: 1px solid var(--darkerPink);
+}
+.logo{
+    width: 100%;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+.logo:hover{
+    box-shadow: 5px 5px var(--DarkestBlue);
+}
+
+.logoContainer{
+    width: 15%;
+    margin-bottom: 5%;
+}
+.buttonsContainer{
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+@media (min-width: 700px){
+    
+    .logoContainer{
+    width: 4%;
+    padding-top: 0.5%;
+    margin-bottom: 0%;
+    margin-left: 5%;
+    cursor: pointer;
+    
+    }
+
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+    .buttonsContainer{
+        flex-direction: row;
+        margin-right: 5%;
+        width: 20%;
+        justify-content: space-evenly;
+    }
+    .changePageButton{
+        
+    }
+}

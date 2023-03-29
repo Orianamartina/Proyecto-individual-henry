@@ -1,36 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@300;400;600&display=swap');
-
-:root{
-    --lightCyan: rgb(160, 255, 249);
-    --lightPink: rgb(252, 202, 195);
-    --darkerPink: rgb(203, 164, 158);
-    --backgroundCream: rgb(244, 241, 236);
-    --DarkestBlue: rgb(57, 72, 105);
-
-    /* fonts */
-
-    --font: 'Sofia Sans Extra Condensed', sans-serif;
-
-}
-
-.barContainer{
-    margin-bottom: 2%;
-}
 
 .barInput{
     width: 45%;
-    
-    
-    border: 2px solid var(--darkerPink);
+    border: 1px solid var(--darkerPink);
     font-family: var(--font);
-    font-size: 4vh;
+    font-size: 5vw;
+    padding: 0;
 }
 .searchButton{
     background-color: var(--DarkestBlue);
-    border: 2px solid var(--darkerPink);
-    font-size: 4vh;
-    font-weight: bold;
+    border: 1px solid var(--darkerPink);
+    font-size: 5vw;
+    
     color: var(--backgroundCream);
-    height: fit-content;
+    border-radius: 0;
+    margin: 0;
+
 }
 
+@media (min-width: 700px){
+    .barInput{
+        width: 40%;
+        font-size: 1.7vw;
+        height: 2vw;
+        
+    }
+    .searchButton{
+        font-size: 1.7vw;
+        height: 2vw;
+    }
+}

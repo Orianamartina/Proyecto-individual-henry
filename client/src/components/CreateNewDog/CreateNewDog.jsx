@@ -5,6 +5,7 @@ import Loading from "../Loading/Loading"
 import { postDog } from "../../redux/actions"
 import {Link} from "react-router-dom"
 import style from "./createnewdog.module.css"
+import Nav from "../Nav/Nav"
 
 const validate = (form) => {
         let errors = {}
@@ -44,8 +45,12 @@ const validate = (form) => {
     }
 
     export default function CreateNewDog ()  {
-
+    const dispatch = useDispatch()
+    const temperaments = useSelector((state) => state.allTemperaments)
+    const [button, setButton] = useState(true);
     const [loading, setLoading] = useState(true);
+
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
@@ -54,14 +59,12 @@ const validate = (form) => {
         return () => clearTimeout(timer);
     }, []);
     
-    const dispatch = useDispatch()
-    const temperaments = useSelector((state) => state.allTemperaments)
     
     useEffect(() => {
         dispatch(getAllTemperaments())
     },[dispatch])
 
-
+    
     const [form, setForm] = useState({
         name: "",
         minimumHeight: "",
@@ -74,8 +77,7 @@ const validate = (form) => {
 
     });
 
-    const [button, setButton] = useState(true);
-
+    
 
     const [error, setError] = useState({
         name: " ",
@@ -89,7 +91,11 @@ const validate = (form) => {
         
     });
 
-    
+    useEffect(()=>{
+            setButton(true)
+            if (Object.entries(error).length === 0)setButton(false)
+        }, [error, setButton]);
+        
 
     const handleChange = (e) => {
          setForm({
@@ -122,10 +128,7 @@ const validate = (form) => {
         })
     }
     
-    useEffect(()=>{
-        setButton(true)
-        if (Object.entries(error).length === 0)setButton(false)
-    }, [error, setButton]);
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -153,58 +156,55 @@ const validate = (form) => {
     }
     return(
         <>
-         
+            <Nav />
             {loading ? (
             <Loading/>
             ) : (
                 <>
-                <Link to="/dogs">
-                    <button className={style.homeButton}>Home</button>
-                </Link>
+                
                 <div className={style.formContainer}>
+                    <h1 className={style.title}>Create your own dog</h1>
                     <form id="form" onSubmit={handleSubmit} action="">
-
-                       
                         <div className={style.formPart}>
-                            <h2>Name</h2> 
+                            <h2 className={style.inputTitle}>Name</h2> 
                              <input className={style.formInput} name= "name" placeholder="..." onChange={(e) => {handleChange(e)}} />
                             <div> {error.name && <p>{error.name}</p>}</div>
 
                         </div>
                         <div className={style.formPart}>
-                            <h2>Minimum Height</h2> 
+                            <h2 className={style.inputTitle}>Minimum Height</h2> 
                             <input className={style.formInput} name= "minimumHeight" placeholder="..." onChange={(e) => {handleChange(e)}} />
                             <div>{error.minimumHeight && <p>{error.minimumHeight}</p>}</div> 
                 
                         </div>
                          
                         <div className={style.formPart}>
-                            <h2>Maximum Height</h2>
+                            <h2 className={style.inputTitle}>Maximum Height</h2>
                             <input className={style.formInput} name= "maximumHeight" placeholder="..." onChange={(e) => {handleChange(e)}} />
                             <div>{error.maximumHeight && <p>{error.maximumHeight}</p>}</div>
                         </div>
                            
                         <div className={style.formPart}>
-                            <h2>Minimum Weight</h2>
+                            <h2 className={style.inputTitle}>Minimum Weight</h2>
                             <input className={style.formInput} name= "minimumWeight" placeholder="..." onChange={(e) => {handleChange(e)}}  />
                             <div>{error.minimumWeight && <p>{error.minimumWeight}</p>}</div> 
                         </div>
                         <div className={style.formPart}>
-                            <h2>Maximum Weight</h2>
+                            <h2 className={style.inputTitle}>Maximum Weight</h2>
                             <input className={style.formInput} name= "maximumWeight" placeholder="..." onChange={(e) => {handleChange(e)}} />
                             <div>{error.maximumWeight && <p>{error.maximumWeight}</p>}</div> 
                         </div>  
                         <div className={style.formPart}>
-                            <h2> Lifespan </h2>
+                            <h2 className={style.inputTitle}> Lifespan </h2>
                             <input className={style.formInput} name= "lifespan" placeholder="..." onChange={(e) => {handleChange(e)}} />
                             <div>{error.lifespan && <p>{error.lifespan}</p>}</div> 
                         </div>  
                         <div className={style.formPart}>
-                            <h2> Image </h2>
+                            <h2 className={style.inputTitle}> Image </h2>
                             <input className={style.formInput} name="image" placeholder="..."  onChange={(e) => {handleChange(e)}} />
                         </div>
                           <div className={style.formPart} htmlFor="">
-                                <h2>Temperaments: </h2>
+                                <h2 className={style.inputTitle}>Temperaments: </h2>
                                  
                                 <div className={style.selectContainer}>
                                     <select className={style.select} onChange={(e) => handleSelect(e)} name="filter" id="2">

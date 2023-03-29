@@ -21,55 +21,55 @@ select {
     font-family: inherit;
     cursor: inherit;
     line-height: inherit;
-    color: var(--DarkestBlue)
+    color: var(--DarkestBlue);
+    
   }
 
 button{
     font-family: var(--font);
-    font-size: 3.5vh;
+    font-size: 5vw;
     background-color: var(--backgroundCream);
-    border: none;
     border: 2px solid var(--darkerPink);
     color: var(--DarkestBlue);
-    border-radius: 5%;
+    border-radius: 5px;
     cursor: pointer;
+    transition: 0.5s
+}
+button:hover{
+    background-color: var(--lightCyan);
+    box-shadow: 5px 10px;
 }
 body{
     font-family: var(--font);
     background-color: var(--backgroundCream);
     text-decoration: none;
 }
+
 .select{
     display: grid;
     appearance: none;
     border: 2px solid var(--darkerPink);
-    border-radius: 5% 5%;
     outline: none;
     cursor: pointer;
     grid-template-areas: "select";
     align-items: center;
     margin: 1%;
     
-
-
     background-color: var(--backgroundCream);
     color: var(--DarkestBlue);
-    width: 20%;
+    width: 50%;
     font-family: var(--font);
-    height: 4vh;
-    font-size: 3,5h;
+    height: 4vw;
+    font-size: 4vw;
     font-weight: 400;
-    
 }   
 .options{
     border: none;
     outline: none;
     height: 100%; 
     background-color: var(--darkerPink);
-    font-size: 3.5vh;
+    font-size: 4vw;
 }
-
-
 select,
 .select:after {
 grid-area: select;
@@ -85,49 +85,38 @@ grid-area: select;
 .displayContainer{
     width: 100%;
 }
-
-
 .cardsContainer{
     display: inline-block;
     width: 100%;
     padding: 0;
-    
-    
 }
 
 
-.logo{
-    width:20%;
-    margin-top:5%;
-    
-   
-}
-.title{
-    margin-top: 0%;
-    border-bottom: 1px solid var(--lightCyan);
-    color: var(--DarkestBlue);
-   
-}
 .optionsContainer{
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 3%;
     margin-top: 3%;
-
 }
 .searchBarContainer{
     width: 100%;
- 
-    padding-top: 3%;
-    padding-bottom: 3%;
+  
 }
 .pageControlButtons{
     margin: 4%;
-    
- }
-
+}
 @media (min-width: 700px) {
-    
+    button{
+        font-size: 1.7vw;
+    }
+    .select{
+        font-size: 1.5vw;
+        height: 1.5vw
+    }    
+    .options{
+        font-size: 1.5vw;
+        font-size: 1.5vw;
+    }
     .displayContainer{
         width: 100%;
     }
@@ -140,23 +129,11 @@ grid-area: select;
     .logoContainer{
         width: 10%;
         padding: 1%;
-        cursor: pointer;
-       
+        cursor: pointer;   
     }
- 
     .logo{
         width: 60%;
     }
-    .buttonsContainer{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        width: 100%;
-        padding-top: 3%;
-        border-bottom: 1px solid var(--darkerPink);
-        
-    }
-    
     
     .buttonsAndOptionsContainer{
         width: 100%;
@@ -167,9 +144,9 @@ grid-area: select;
         border-bottom: 1px solid var(--lightCyan);
     }
     .searchBarContainer{
-        width: 60%;
-        height: 9vh;
-        padding: 0;
+        width: 100%;
+        padding: 1%;
+
     }
     
     
@@ -181,7 +158,5 @@ grid-area: select;
         
      }
 
-   
-    
 }
 

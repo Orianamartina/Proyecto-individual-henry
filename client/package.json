@@ -1,6 +1,5 @@
 {
   
-  "homepage": "http://orianamartina.github.io/Proyecto-individual-henry",
   "name": "client",
   "version": "0.1.0",
   "private": true,
@@ -19,10 +18,9 @@
     "redux-thunk": "^2.3.0",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://orianamartina.github.io/Proyecto-individual-henry/",
+  
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",

@@ -6,7 +6,9 @@
     --DarkestBlue: rgb(57, 72, 105);
 
 }
-
+h1{
+    text-decoration: none
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -18,15 +20,17 @@
     margin: auto; 
     margin-top: 5%;
     margin-bottom: 5%;
-    border-radius: 5%;
+    border-radius: 15px;
     padding-bottom: 5%;
 }
 .img{
     width: 100%;
     overflow: hidden;
     object-fit: cover;
-    border-top-left-radius: 5% ;
-    border-top-right-radius: 5%  ;
+    border-top-left-radius: 15px ;
+    border-top-right-radius: 15px  ;
+    margin-bottom: 4%;
+
     
 }
 .textContainer{
@@ -38,7 +42,7 @@
     font-size: 4vw;
 }
 .title{
-    font-size: 5vw;
+    font-size: 4vw;
 }
 .buttonDiv{
     margin: auto;
@@ -50,19 +54,30 @@
     font-size: 4vh;
     
 }
+.logo{
+    max-width: 15%;
+    margin:0%;
+}
+.title{
+    margin:0%;
+    text-decoration: none;
+    color: var(--DarkestBlue);
 
+    
+}
 @media (min-width: 700px) {
     .container{
         width: 40%;
         
     }
+    .logo{
+        width: 8%;
+    }
     .text{
         margin: 0;
         font-size: 2vw;
     }
-    .title{
-        font-size: 3vw;
-    }
+    
     
 
 }
