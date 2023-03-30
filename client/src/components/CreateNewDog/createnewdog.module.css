@@ -25,7 +25,6 @@ ul{
     
     display: grid;
     appearance: none;
-    border: 2px solid var(--darkerPink);
     outline: none;
     cursor: pointer;
     grid-template-areas: "select";
@@ -39,8 +38,8 @@ ul{
     color: var(--DarkestBlue);
     width: 30%;
     font-family: var(--font);
-    height: 4vw;
-    font-size: 3.5vw;
+    height: 6vw;
+    font-size: 5vw;
     font-weight: 400;
     
     
@@ -51,7 +50,8 @@ ul{
     height: 100%; 
     background-color: var(--darkerPink);
     width: 100%;
-    font-size: 3vw;
+    font-size: 5vw;
+    height: 6vw;
 }
 
 
@@ -72,8 +72,8 @@ grid-area: select;
 .formInput{
     background-color: var(--backgroundCream);
     border: 2px solid var(--darkerPink);
-    height: 4vw;
-    font-size: 3vw;
+    height: 7vw;
+    font-size: 4vw;
     font-weight: 400;   
     font-family: var(--font);
     color: var(--DarkestBlue);

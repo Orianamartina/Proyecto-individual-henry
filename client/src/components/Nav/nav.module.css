@@ -5,7 +5,7 @@
     width: 100%;
     align-items: center;
     height: fit-content;
-    border-bottom: 1px solid var(--darkerPink);
+    
 }
 .logo{
     width: 100%;
@@ -18,7 +18,7 @@
 
 .logoContainer{
     width: 15%;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     padding-top: 5%;
 }
 .buttonsContainer{
@@ -27,7 +27,7 @@
     
 }
 .changePageButton{
-    margin-bottom: 12%;
+    margin-bottom: 8%;
 }
 @media (min-width: 550px){
     .container{
@@ -35,6 +35,7 @@
         flex-direction: row;
         justify-content: space-between;
         height: 10%;
+        border-bottom: 1px solid var(--darkerPink);
         
     }
     .logoContainer{

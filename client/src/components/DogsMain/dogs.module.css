@@ -45,6 +45,25 @@ body{
     text-decoration: none;
 }
 
+
+.options{
+    border: none;
+    outline: none;
+    height: 7vw; 
+    background-color: var(--darkerPink);
+    font-size: 4vw;
+    transition: 0.5s;
+    width: 50vw;
+
+    
+}
+.options:hover{
+    box-shadow: 5px 5px var(--DarkestBlue);
+}
+select,
+.select:after {
+grid-area: select;
+}
 .select{
     display: grid;
     appearance: none;
@@ -61,24 +80,8 @@ body{
     height: 4vw;
     font-size: 4vw;
     font-weight: 400;
-    
-}   
-.options{
-    border: none;
-    outline: none;
-    height: 100%; 
-    background-color: var(--darkerPink);
-    font-size: 4vw;
-    transition: 0.5s;
+    margin-bottom: 6%;
 }
-.options:hover{
-    box-shadow: 5px 5px var(--DarkestBlue);
-}
-select,
-.select:after {
-grid-area: select;
-}
-
 .select::after{
     content: "";
     width: 0.5em;
@@ -99,10 +102,15 @@ grid-area: select;
 
 .optionsContainer{
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 3%;
     margin-top: 3%;
 }
+
+
+
+
 .searchBarContainer{
     margin-top: 5%;
     width: 100%;
@@ -123,10 +131,17 @@ grid-area: select;
     .options{
         font-size: 1.5vw;
         font-size: 1.5vw;
-        padding: 2%;
+        padding: 1%;
+        margin: 0;
+        height: 2vw;
+        width: 20vw;
+    }
+    .optionsContainer{
+        flex-direction: row;
     }
     .displayContainer{
         width: 100%;
+        
     }
     .nav{
         display: flex;
