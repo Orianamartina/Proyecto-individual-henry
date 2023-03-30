@@ -111,6 +111,7 @@ grid-area: select;
     }
     .select{
         font-size: 1.5vw;
+        height: 2vw;
     }
     .title{
         font-size: 2vw;
