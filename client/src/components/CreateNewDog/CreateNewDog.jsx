@@ -112,12 +112,15 @@ const validate = (form) => {
     }
 
     const handleSelect =  (e) => {
-        setForm({
+        if (!form.temperament.includes(e.target.value)){
+             setForm({
             ...form,
             temperament: [...form.temperament, e.target.value]
-        }) 
-        setError(validate({...form,
-            temperament: [...form.temperament, e.target.value]}))
+            }) 
+            setError(validate({...form,
+                temperament: [...form.temperament, e.target.value]}))
+        }
+       
         
     }
     
@@ -222,19 +225,16 @@ const validate = (form) => {
                                         }      
                                     </select>
                                 </div>
-                                <ul>
+                                <div className={style.temperamentContainer}>
                                     {
                                         form.temperament.map(t => {
+                                           
                                             return(<>
-                                            <div className={style.temperamentDiv}>
-                                                <button className={style.deleteButton} onClick={() =>handleDelete(t)} key={t}>x</button>
-                                                <li>{t}</li> 
-                                            </div>
-                                                
+                                                <button className={style.deleteButton} onClick={() =>handleDelete(t)} key={t}>{t}</button> 
                                             </> )
                                         })
                                     }
-                                 </ul>  
+                                 </div>  
                         
                         </div>
                         

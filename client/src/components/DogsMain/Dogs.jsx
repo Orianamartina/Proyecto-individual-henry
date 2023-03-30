@@ -123,7 +123,6 @@ export default function Dogs() {
 
                             
                             <div className={style.select}>
-                            
                                 <select id="1" className={style.options} onChange={(e) => {handleOrderByName(e)}}>
                                     <option value="" disabled selected  > Sort by name </option>
                                     <option value="asc">A - Z</option>

@@ -11,7 +11,6 @@ export default function(){
             
             <div onClick={() => {window.location.replace("/dogs")}} className={style.logoContainer}>
                 <img className={style.logo} src={logo} alt="DogHub" />
-    
             </div>
             <div className={style.buttonsContainer}>
 

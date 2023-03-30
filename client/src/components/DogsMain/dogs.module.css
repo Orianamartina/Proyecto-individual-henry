@@ -48,7 +48,6 @@ body{
 .select{
     display: grid;
     appearance: none;
-    border: 2px solid var(--darkerPink);
     outline: none;
     cursor: pointer;
     grid-template-areas: "select";
@@ -62,6 +61,7 @@ body{
     height: 4vw;
     font-size: 4vw;
     font-weight: 400;
+    
 }   
 .options{
     border: none;
@@ -69,11 +69,16 @@ body{
     height: 100%; 
     background-color: var(--darkerPink);
     font-size: 4vw;
+    transition: 0.5s;
+}
+.options:hover{
+    box-shadow: 5px 5px var(--DarkestBlue);
 }
 select,
 .select:after {
 grid-area: select;
 }
+
 .select::after{
     content: "";
     width: 0.5em;
@@ -99,6 +104,7 @@ grid-area: select;
     margin-top: 3%;
 }
 .searchBarContainer{
+    margin-top: 5%;
     width: 100%;
   
 }
@@ -111,11 +117,13 @@ grid-area: select;
     }
     .select{
         font-size: 1.5vw;
-        height: 1.5vw
+        height: 2vw;
+        width: 15%;
     }    
     .options{
         font-size: 1.5vw;
         font-size: 1.5vw;
+        padding: 2%;
     }
     .displayContainer{
         width: 100%;
@@ -146,6 +154,7 @@ grid-area: select;
     .searchBarContainer{
         width: 100%;
         padding: 1%;
+        margin: 0;
 
     }
     

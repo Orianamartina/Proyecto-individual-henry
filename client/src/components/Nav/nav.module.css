@@ -19,12 +19,38 @@
 .logoContainer{
     width: 15%;
     margin-bottom: 5%;
+    padding-top: 5%;
 }
 .buttonsContainer{
     display: flex;
     flex-direction: column;
-
     
+}
+.changePageButton{
+    margin-bottom: 12%;
+}
+@media (min-width: 550px){
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10%;
+        
+    }
+    .logoContainer{
+        width: 6%;
+        padding-top: 2%;
+        margin-left: 2%;
+    }
+    .buttonsContainer{
+        flex-direction: row;
+        margin-right: 5%;
+        width: 20%;
+        justify-content: space-evenly;
+    }
+    .changePageButton{
+        font-size: 2.5vw;
+    }
 }
 
 @media (min-width: 700px){
@@ -44,13 +70,9 @@
         justify-content: space-between;
         
     }
-    .buttonsContainer{
-        flex-direction: row;
-        margin-right: 5%;
-        width: 20%;
-        justify-content: space-evenly;
-    }
     .changePageButton{
-        
+        font-size: 1.8vw;
     }
+    
+
 }

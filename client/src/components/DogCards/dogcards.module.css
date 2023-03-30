@@ -18,7 +18,7 @@
 
 }
 .cardContainer:hover{
-    box-shadow: 5px 8px;
+    box-shadow: 5px 10px;
 }
 
 .cardImage{
@@ -78,7 +78,7 @@
     .cardContainer{
         width: 20%;
         margin: 2%;
-        height: 25vw;
+        height: 23vw;
     }
     .h3Title{
         font-size: 1.3vw;
