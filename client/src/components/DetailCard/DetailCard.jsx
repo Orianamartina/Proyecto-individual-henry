@@ -15,7 +15,6 @@ export default function DetailCard() {
     let detail = useSelector((state) => state.dogDetail)
     //hacemos dispatch de la action cuando se monta el componente
     useEffect(() =>{
-        
         dispatch(getDogDetail(dogId.id))
     }, [])
     
@@ -39,17 +38,18 @@ export default function DetailCard() {
                     <div className={style.container}>
                         <h1 className={style.title}>
                                 {detail.name}
-                            </h1>
+                        </h1>
                         <div className={style.imgContainer}> <img className={style.img} src={detail.image} alt={dogId.id} /></div>
                         
                         <div className={style.textContainer}>
                             
                             <h2 className={style.text}>Id:  {detail.id}</h2>
                             <h2 className={style.text}>Lifespan:  {detail.lifespan}</h2>
-                            <h2 className={style.text}>weight:  {detail.weight} Kg</h2>
+                            <h2 className={style.text}>Weight:  {detail.weight} Kg</h2>
                             <h2 className={style.text}>Height:  {detail.height} Cm</h2>
                             <h2 className={style.text}>Temperament: </h2>
                             <h2 className={style.text}>{detail.temperament}</h2> 
+                            
                         </div>
                     </div>
                 )}

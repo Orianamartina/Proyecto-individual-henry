@@ -29,7 +29,6 @@ const validate = (form) => {
         }
         if(isNaN(parseInt(form.lifespan))){
             errors.lifespan = "Lifespan must be an integer"
-           
         }
         if(parseInt(form.minimumHeight) > parseInt(form.maximumHeight)){
             errors.minimumHeight = "Minimum height must be smaller than maximum height"
@@ -39,12 +38,11 @@ const validate = (form) => {
         }
         if(form.temperament.length === 0){
             errors.temperament = "Choose at least one temperament out of the list"
-    
         }
         return errors
     }
 
-    export default function CreateNewDog ()  {
+export default function CreateNewDog ()  {
     const dispatch = useDispatch()
     const temperaments = useSelector((state) => state.allTemperaments)
     const [button, setButton] = useState(true);
@@ -77,7 +75,6 @@ const validate = (form) => {
 
     });
 
-    
 
     const [error, setError] = useState({
         name: " ",
@@ -96,7 +93,7 @@ const validate = (form) => {
             if (Object.entries(error).length === 0)setButton(false)
         }, [error, setButton]);
         
-
+    
     const handleChange = (e) => {
          setForm({
             ...form,
@@ -106,8 +103,6 @@ const validate = (form) => {
             ...form,
             [e.target.name] : e.target.value
         }))
-        
-
         
     }
 
@@ -120,8 +115,7 @@ const validate = (form) => {
             setError(validate({...form,
                 temperament: [...form.temperament, e.target.value]}))
         }
-       
-        
+ 
     }
     
     const handleDelete = (el) => {
@@ -131,8 +125,6 @@ const validate = (form) => {
         })
     }
     
-    
-
     const handleSubmit = (e) => {
         e.preventDefault();
         let submitForm = { 
@@ -176,25 +168,25 @@ const validate = (form) => {
                         </div>
                         <div className={style.formPart}>
                             <h2 className={style.inputTitle}>Minimum Height</h2> 
-                            <input className={style.formInput} name= "minimumHeight" placeholder="..." onChange={(e) => {handleChange(e)}} />
+                            <input className={style.formInput} name= "minimumHeight" placeholder="cm" onChange={(e) => {handleChange(e)}} />
                             <div>{error.minimumHeight && <p>{error.minimumHeight}</p>}</div> 
                 
                         </div>
                          
                         <div className={style.formPart}>
                             <h2 className={style.inputTitle}>Maximum Height</h2>
-                            <input className={style.formInput} name= "maximumHeight" placeholder="..." onChange={(e) => {handleChange(e)}} />
+                            <input className={style.formInput} name= "maximumHeight" placeholder="cm" onChange={(e) => {handleChange(e)}} />
                             <div>{error.maximumHeight && <p>{error.maximumHeight}</p>}</div>
                         </div>
                            
                         <div className={style.formPart}>
                             <h2 className={style.inputTitle}>Minimum Weight</h2>
-                            <input className={style.formInput} name= "minimumWeight" placeholder="..." onChange={(e) => {handleChange(e)}}  />
+                            <input className={style.formInput} name= "minimumWeight" placeholder="kg" onChange={(e) => {handleChange(e)}}  />
                             <div>{error.minimumWeight && <p>{error.minimumWeight}</p>}</div> 
                         </div>
                         <div className={style.formPart}>
                             <h2 className={style.inputTitle}>Maximum Weight</h2>
-                            <input className={style.formInput} name= "maximumWeight" placeholder="..." onChange={(e) => {handleChange(e)}} />
+                            <input className={style.formInput} name= "maximumWeight" placeholder="kg" onChange={(e) => {handleChange(e)}} />
                             <div>{error.maximumWeight && <p>{error.maximumWeight}</p>}</div> 
                         </div>  
                         <div className={style.formPart}>

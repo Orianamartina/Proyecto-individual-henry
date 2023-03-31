@@ -2,7 +2,7 @@ import { useState } from "react"
 import style from "./pages.module.css"
 
 export default function({amountOfPages, currentPage, setCurrentPage}){
-    console.log(currentPage)
+
     let pages = amountOfPages
     let lowestHighestPagePossible = amountOfPages.length - 4
     const lowestIndex = currentPage - 1
@@ -21,7 +21,6 @@ export default function({amountOfPages, currentPage, setCurrentPage}){
     }
     
 
-    console.log(pages)
     return (
         <div  className={style.buttonsContainer}>
             <button className={style.button} onClick={() => setCurrentPage(1)}>{"<<"}</button>

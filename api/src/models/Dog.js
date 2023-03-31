@@ -32,11 +32,9 @@ module.exports = (sequelize) => {
     },
     createdByUser: {
       type: DataTypes.BOOLEAN,
-      default: true,}
+      default: true,
+    }
     
-    
-    
-   
-
+  
 },{timestamps: false}
 )}

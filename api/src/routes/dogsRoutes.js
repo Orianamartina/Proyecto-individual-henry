@@ -1,8 +1,3 @@
-const axios = require("axios");
-
-const {api_key} = process.env 
-const {Dog, Temperament} = require ("../db");
- 
 
 // controladores
 const {
@@ -11,8 +6,8 @@ createDog,
 getAllBreeds,
 getBreedByIdBoth
 
-} 
-= require("../controllers/dogController");
+} = require("../controllers/dogController");
+
 
 // 
 
@@ -71,7 +66,7 @@ dogs.post("/dogs", async (req, res) =>{
         let newDog = createDog(image, name, height, weight, lifespan, temperament)
         res.status(200).json(newDog)
     } catch (error) {
-        
+        res.status(400).send("There was an error trying to create a new dog")
     }
 })
 

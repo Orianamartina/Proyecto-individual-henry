@@ -1,5 +1,5 @@
 
-import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS,  GET_ALL_TEMPERAMENTS, GET_API_BREEDS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT, GET_DATABASE_BREEDS } from "../action-types"
+import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS,  GET_ALL_TEMPERAMENTS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT, GET_DATABASE_BREEDS } from "../action-types"
 
 const initialState = {
     breedsForFunctions: [],
@@ -143,8 +143,7 @@ const initialState = {
                     }
                 }
             }
-            
-
+        
             return{
                 ...state,
                 allBreeds: filteredArray
