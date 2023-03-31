@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getAllBreeds = () => {
     return async function(dispatch){
-        let data = await axios("/dogs")
+        let data = await axios("https://proyecto-individual-henry-production-b263.up.railway.app/dogs")
         return dispatch({type: GET_ALL_BREEDS, payload: data.data})
     } 
 }
