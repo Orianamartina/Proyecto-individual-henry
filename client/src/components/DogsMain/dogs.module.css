@@ -167,7 +167,7 @@ grid-area: select;
         border-bottom: 1px solid var(--lightCyan);
     }
     .searchBarContainer{
-        width: 100%;
+        max-width: 98%;
         padding: 1%;
         margin: 0;
 
