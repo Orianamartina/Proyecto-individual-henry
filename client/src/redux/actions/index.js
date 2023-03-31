@@ -10,14 +10,14 @@ export const getAllBreeds = () => {
 
 export const getAllTemperaments = () => {
     return async function(dispatch){
-        let data = await axios("/temperaments")
+        let data = await axios("https://proyecto-individual-henry-production-b263.up.railway.app/temperaments")
     
         return dispatch({type: GET_ALL_TEMPERAMENTS, payload: data.data})
     }
 }
 export const getDogDetail  = (id) => {
     return async function(dispatch){
-        let data = await axios(`/dogs/${id}`)
+        let data = await axios(`https://proyecto-individual-henry-production-b263.up.railway.app/dogs/${id}`)
     
         return dispatch({type: GET_DOG_DETAIL, payload: data.data})
     }
@@ -25,7 +25,7 @@ export const getDogDetail  = (id) => {
 }
 export const getDogByName = (name) => {
     return async function(dispatch){
-        let data = await axios(`/dogs/name/?name=${name}`)
+        let data = await axios(`https://proyecto-individual-henry-production-b263.up.railway.app/dogs/name/?name=${name}`)
     
         return dispatch({type: GET_DOG_BY_NAME, payload: data.data})
     }
@@ -53,7 +53,7 @@ export const filterByTemperament = (payload) => {
 
 export const postDog = (payload) => {
     return async function() {
-        const data = await axios.post("/dogs", payload)
+        const data = await axios.post("https://proyecto-individual-henry-production-b263.up.railway.app/dogs", payload)
         return data
     }
     
