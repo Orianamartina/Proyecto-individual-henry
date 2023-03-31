@@ -10,6 +10,7 @@
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     padding-left: 2%;
+    height: 10vw;
 
 }
 
@@ -17,7 +18,7 @@
    
     border: 2px solid var(--darkerPink);
     font-size: 5vw;
-
+    height: 10vw;
     border-radius: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;

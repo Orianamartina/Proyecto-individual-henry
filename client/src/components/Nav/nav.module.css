@@ -28,6 +28,7 @@
 }
 .changePageButton{
     margin-bottom: 8%;
+    font-size: 7vw;
 }
 @media (min-width: 550px){
     .container{
