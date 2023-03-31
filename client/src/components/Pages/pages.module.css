@@ -1,6 +1,22 @@
+
+
 .buttonsContainer{
-   margin-bottom: 2%;
+   margin-bottom: 7%;
+   margin-top: 7%;
+   
 }
 .button{
-    margin-left: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+@media (min-width: 700px){
+    .buttonsContainer{
+        margin-bottom: 2%;
+        margin-top: 0;
+    }
+    .button{
+        margin-left: 1%;
+         margin-right: 1%;
+    }
 }

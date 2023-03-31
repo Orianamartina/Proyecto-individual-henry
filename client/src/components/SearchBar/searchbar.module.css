@@ -2,6 +2,7 @@
 .barInput{
     width: 60%;
     border: 2px solid var(--darkerPink);
+    border-right: 0;
     font-family: var(--font);
     font-size: 5vw;
     padding: 0;

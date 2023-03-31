@@ -3,8 +3,8 @@
 .cardContainer{
     display: inline-block; 
     vertical-align: top;
-    width: 70%;
-    height: 50vh;
+    width: 80%;
+    height: 43vh;
     margin: 2.5%;
     margin-top: 2%;
 
@@ -34,14 +34,14 @@
     border-top-left-radius: 8px;
 }
 .nameTitle{
-    font-size: 5vw;
+    font-size: 7vw;
     margin: 0;
     line-height: 0.8;
     padding-top: 3%;
 }
 .h3Title{
     margin: 0;
-    font-size: 3vh;
+    font-size: 2.5vh;
     padding-left: 2%;
     padding-right: 2%;
 }
@@ -83,4 +83,5 @@
     .h3Title{
         font-size: 1.3vw;
     }
+    
 }
