@@ -1,6 +1,6 @@
 import { FILTER_BY_TEMPERAMENT, GET_ALL_BREEDS, GET_ALL_TEMPERAMENTS,GET_DATABASE_BREEDS, GET_DOG_BY_NAME, GET_DOG_DETAIL, ORDER_BY_NAME, ORDER_BY_WEIGHT, GET} from "../action-types";
 import axios from "axios";
-const apiUrl = "https://dog-hub.onrender.com"
+const apiUrl = "http://dog-hub.onrender.com"
 
 export const getAllBreeds = () => {
     return async function(dispatch){
