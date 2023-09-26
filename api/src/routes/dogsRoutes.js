@@ -24,7 +24,7 @@ dogs.get("/dogs",async(req, res) =>{
         breedsResponse = await getAllBreeds()
         return res.status(200).json(breedsResponse)
     } catch (error) {
-        res.status(400).send("there was an error loading the data")
+        res.status(400).send(error)
     }} 
 );
 dogs.get("/dogs/name", async(req, res) =>{
