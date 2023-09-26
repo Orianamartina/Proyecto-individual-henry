@@ -29,11 +29,10 @@ const getAllBreedsApi = async () => {
                 temperament: temperamentArray
             })
         })
-        return dogsArrayApi
-    
+        return apiData.data
     
     }catch(error){
-        return error
+        return {error: "Problem finding all breeds! who let the dogs out?"}
     }
 }
 
