@@ -33,7 +33,7 @@ const getAllBreedsApi = async () => {
     
     
     }catch(error){
-        return {error: "Problem finding all breeds! who let the dogs out?"}
+        return error
     }
 }
 
