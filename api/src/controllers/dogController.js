@@ -68,10 +68,10 @@ const getAllBreedsDb = async () => {
 
 const getAllBreeds = async ()=>{
     let apiDogs = await getAllBreedsApi();
-    let databaseDogs = await getAllBreedsDb()
+    //let databaseDogs = await getAllBreedsDb()
 
-    let result = apiDogs.concat(databaseDogs)
-    return result
+   // let result = apiDogs.concat(databaseDogs)
+    return apiDogs
 }
 //
 
